@@ -37,7 +37,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 300
@@ -70,5 +70,24 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+vim.opt.wrap = false
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.scrolloff = 8
+vim.opt.smartindent = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.wo.relativenumber = true
+
+vim.o.mouse = 'a'
+vim.o.undofile = true
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
 -- vim: ts=2 sts=2 sw=2 et

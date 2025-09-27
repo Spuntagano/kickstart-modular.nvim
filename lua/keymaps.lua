@@ -51,4 +51,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('v', '<C-Up>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-Down>', ":m '>+1<CR>gv=gv")
 -- vim: ts=2 sts=2 sw=2 et

@@ -11,15 +11,22 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>nt', ':Neotree toggle<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
-    },
+    close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tabp
   },
+  init = function()
+
+    -- vim.api.nvim_create_augroup('neotree', {})
+    -- vim.api.nvim_create_autocmd('UiEnter', {
+    --  desc = 'Open Neotree automatically',
+    --  group = 'neotree',
+    --  callback = function()
+    --    if vim.fn.argc() == 0 then
+    --      vim.cmd 'Neotree toggle'
+    --    end
+    --  end,
+    --})
+  end,
 }
