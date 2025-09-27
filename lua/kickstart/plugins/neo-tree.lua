@@ -14,7 +14,7 @@ return {
     { '<leader>nn', ':Neotree toggle<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
-    close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tabp
+    close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tabp
   },
   init = function()
 
