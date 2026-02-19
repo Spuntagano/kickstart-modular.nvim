@@ -75,6 +75,7 @@ require('lazy').setup({
   require 'custom.plugins.harpoon',
   -- require 'custom.plugins.neominimap',
   require 'custom.plugins.copilot',
+  require 'custom.plugins.csvview',
 
 }, {
   ui = {
