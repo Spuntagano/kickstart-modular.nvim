@@ -1,6 +1,26 @@
 return {
   'gorbit99/codewindow.nvim',
   config = function()
+    -- nvim-treesitter's `main` branch dropped ts_utils; codewindow only needs get_vim_range from it
+    package.preload['nvim-treesitter.ts_utils'] = package.preload['nvim-treesitter.ts_utils']
+      or function()
+        return {
+          get_vim_range = function(range, buf)
+            local srow, scol, erow, ecol = unpack(range)
+            srow, scol, erow = srow + 1, scol + 1, erow + 1
+            if ecol == 0 then
+              erow = erow - 1
+              if not buf or buf == 0 then
+                ecol = vim.fn.col { erow, '$' } - 1
+              else
+                ecol = #vim.api.nvim_buf_get_lines(buf, erow - 1, erow, false)[1]
+              end
+              ecol = math.max(ecol, 1)
+            end
+            return srow, scol, erow, ecol
+          end,
+        }
+      end
     local codewindow = require 'codewindow'
     codewindow.setup {
       active_in_terminals = false, -- Should the minimap activate for terminal buffers
